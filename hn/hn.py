@@ -44,7 +44,7 @@ class HN(object):
         rows = table.findChildren(['tr'])[:-2]
         # remove the spacing rows
         # indices of spacing tr's
-        spacing = range(2, len(rows), 3)
+        spacing = list(range(2, len(rows), 3))
         rows = [row for (i, row) in enumerate(rows) if (i not in spacing)]
         # rank, title, domain
         info = [row for (i, row) in enumerate(rows) if (i % 2 == 0)]
@@ -52,7 +52,7 @@ class HN(object):
         detail = [row for (i, row) in enumerate(rows) if (i % 2 != 0)]
 
         # build a list of tuple for all post
-        return zip(info, detail)
+        return list(zip(info, detail))
 
     def _build_story(self, all_rows):
         """
@@ -232,7 +232,7 @@ class Story(object):
 
         # the last row of the table contains the relative url of the next page
         anchor = table.findChildren(['tr'])[-1].find('a')
-        if anchor and anchor.text == u'More':
+        if anchor and anchor.text == 'More':
             return anchor.get('href').lstrip(BASE_URL)
         else:
             return None

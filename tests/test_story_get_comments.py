@@ -6,7 +6,7 @@ from random import randrange
 from hn import HN, Story
 from hn import utils, constants
 
-from test_utils import get_content, PRESETS_DIR
+from .test_utils import get_content, PRESETS_DIR
 
 import httpretty
 

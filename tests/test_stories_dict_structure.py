@@ -5,7 +5,7 @@ import sys
 from hn import HN, Story
 from hn import utils, constants
 
-from test_utils import get_content, PRESETS_DIR
+from .test_utils import get_content, PRESETS_DIR
 
 import httpretty
 
@@ -29,7 +29,7 @@ class TestStoriesDict(unittest.TestCase):
         if not PY2:
             self.text_type = [str]
         else:
-            self.text_type = [unicode, str]
+            self.text_type = [str, str]
 
         self.hn = HN()
         self.top_stories = [story for story in self.hn.get_stories()]

@@ -5,7 +5,7 @@ import sys
 from hn import HN, Story
 from hn import utils, constants
 
-from test_utils import get_content, PRESETS_DIR
+from .test_utils import get_content, PRESETS_DIR
 
 import httpretty
 
@@ -22,7 +22,7 @@ class TestStory(unittest.TestCase):
         if not self.PY2:
             self.text_type = [str]
         else:
-            self.text_type = [unicode, str]
+            self.text_type = [str, str]
         # https://news.ycombinator.com/item?id=6115341
         self.story = Story.fromid(6115341)
 
